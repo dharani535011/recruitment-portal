@@ -47,7 +47,7 @@ const Feedback = () => {
         res.tech1.feedback = formData.feedback
         res.count = (res.count || 0) + 1
 
-        // Update state to trigger re-render
+        
         setdata([...data])  
         alert("Feedback submitted successfully!")}
         else if(res.count==1){
@@ -58,7 +58,7 @@ const Feedback = () => {
         res.tech2.feedback = formData.feedback
         res.count = (res.count || 0) + 1
 
-        // Update state to trigger re-render
+        
         setdata([...data])  
         alert("Feedback submitted successfully!")
         }else if(res.count==2){
@@ -69,7 +69,7 @@ const Feedback = () => {
         res.tech3.feedback = formData.feedback
         res.count = (res.count || 0) + 1
 
-        // Update state to trigger re-render
+        
         setdata([...data])  
         alert("Feedback submitted successfully!")
         }
