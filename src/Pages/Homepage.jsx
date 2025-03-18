@@ -23,7 +23,7 @@ const Homepage = () => {
             </div>
             <div className='hr'>
                 <h1 style={{textAlign:"center"}}>India’s Largest Job Portal</h1>
-                <p>WorkIndia helps you hire staff in 2 days</p>
+                <p>Recruitment Portal helps you hire staff in 2 days</p>
                 <img src={hr} alt="img" draggable="false"/>
                 <span>
                     <button onClick={()=>navigate("/hr")}>Hire now</button>
