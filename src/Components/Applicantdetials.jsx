@@ -80,12 +80,12 @@ const Applicantdetials = () => {
                     res.status=="Pending"&& <div className='schedule'>
                          <p >Schedule Interview : </p>
                    <select name="Interviewer" multiple onChange={handleSelectChange}>
-                    <option value="jhon@gmail.com">Jhon</option>
-                    <option value="sam@gmail.com">Sam</option>
-                    <option value="vinoth@gmail.com">Vinoth</option>
-                    <option value="umarali@gmail.com">Umar ali</option>
-                    <option value="joseph@gmail.com">Joseph</option>
-                    <option value="ramanan@gmail.com">Ramanan</option>
+                    <option value="jhon@gmail.com">{`Jhon(HR)`}</option>
+                    <option value="sam@gmail.com">{`Sam(Tech)`}</option>
+                    <option value="vinoth@gmail.com">{`Vinoth(HR)`}</option>
+                    <option value="umarali@gmail.com">{`Umar ali(Task)`}</option>
+                    <option value="joseph@gmail.com">{`Joseph(Task)`}</option>
+                    <option value="ramanan@gmail.com">{`Ramanan(Tech)`}</option>
                    </select>
                     </div>
                   }
