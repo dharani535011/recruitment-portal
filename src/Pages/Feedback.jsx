@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react"
 import { Dataprovider } from "../Components/Dataprovider"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 const Feedback = () => {
-    const {datas}=useContext(Dataprovider)
+    const {datas,reloaders}=useContext(Dataprovider)
     const [data,setdata]=datas
+    const [reloader,setReloader]=reloaders
   const [formData, setFormData] = useState({
     applicantMail: "",
     interviewerMail: "",
@@ -23,59 +25,24 @@ const Feedback = () => {
     setFormData((prev) => ({ ...prev, rating: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
-
-    // Find the applicant by email
-    const res = data.find((val) => val.email === formData.applicantMail)
-
-    // Check if applicant exists
-    if (!res) {
-        alert("Applicant not found!")
-        return
-    }
-
-    // Check if interviewer exists in the applicant's interviewers list
-    const amm = res?.interviewers?.find((val) => val === formData.interviewerMail)
-
-    if (amm) {
-        if(res.count==0){
-        res.tech1.rating = formData.rating
-        res.tech1.Strengthsandweaknesses = formData.strengthsAndWeaknesses
-        res.tech1.OverallDecision = formData.overallDecision
-        res.tech1.person = formData.interviewerMail.split("@")[0]
-        res.tech1.feedback = formData.feedback
-        res.count = (res.count || 0) + 1
-
-        
-        setdata([...data])  
-        alert("Feedback submitted successfully!")}
-        else if(res.count==1){
-        res.tech2.rating = formData.rating
-        res.tech2.Strengthsandweaknesses = formData.strengthsAndWeaknesses
-        res.tech2.OverallDecision = formData.overallDecision
-        res.tech2.person = formData.interviewerMail.split("@")[0]
-        res.tech2.feedback = formData.feedback
-        res.count = (res.count || 0) + 1
-
-        
-        setdata([...data])  
-        alert("Feedback submitted successfully!")
-        }else if(res.count==2){
-        res.tech3.rating = formData.rating
-        res.tech3.Strengthsandweaknesses = formData.strengthsAndWeaknesses
-        res.tech3.OverallDecision = formData.overallDecision
-        res.tech3.person = formData.interviewerMail.split("@")[0]
-        res.tech3.feedback = formData.feedback
-        res.count = (res.count || 0) + 1
-
-        
-        setdata([...data])  
-        alert("Feedback submitted successfully!")
-        }
-    } else {
-        alert("Interviewer email not found in applicant's records.")
-    }
+  //  console.log(formData)
+       try {
+        const res=await axios.post("https://recruitmentportalbackend.onrender.com/applicant/review",{
+          applicantMail:formData.applicantMail,
+          interviewerMail:formData.interviewerMail,
+          feedback:formData.feedback,
+          overall:formData.overallDecision,
+          rating:formData.rating,
+          saw:formData.strengthsAndWeaknesses
+        },{withCredentials:true})
+        alert(res.data.message)
+       } catch (error) {
+        console.log(error.message)
+       }finally{
+        setReloader(!reloader)
+       }
 
     // Reset the form
     setFormData({

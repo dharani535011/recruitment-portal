@@ -62,11 +62,14 @@ body{
   }
   .hr{
     /* user-select: none; */
-   
+    /* position: fixed;
+    top: 0;
+    left: 0; */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    /* z-index: 9999999; */
     span{
       display: flex;
       gap: 30px;
@@ -253,10 +256,7 @@ body{
     margin-left: 30px;
   }
 }
-.card:hover{
-  width: 330px;
-  height: 155px;
-}
+
 .applicantdetial{
   position: fixed;
   top: 0;
@@ -316,10 +316,14 @@ body{
 }
 .schedule{
   display: flex;
+  /* padding: 10px; */
   p{
     margin-right: 5px;
+    /* padding: 5px; */
   }
+
 }
+
 .pro{
 display: flex;
 align-items: center;
@@ -333,7 +337,7 @@ select:focus{
 select{
   border-radius: 8px;
   background-color: rgb(89, 89, 105);
-  width: 100px;
+  width: 110px;
   padding: 5px;
   border: 0px;
   option{
@@ -356,6 +360,7 @@ button{
 }
 }
 .finput{
+  z-index: 99;
   position: fixed;
   top: 110px;
   width: 100vw;
@@ -409,7 +414,7 @@ button{
   top: 35px;
   left: -20px;
   border-radius: 5px;
-  
+  z-index: 9999;
   background-color: rgb(76,94,170);
   p{
     width: 100%;
@@ -503,13 +508,48 @@ button{
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background ease 0.3s;
 }
 
 .fbb button:hover {
   background: #3b4c85;
 }
-
+.card{
+  position: relative;
+  z-index: 9;
+  height: 220px;
+}
+.card:hover{
+  width: 330px;
+  height: 225px;
+}
+.status{
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 60px;
+  font-size: 15px;
+  color: yellow;
+  z-index: 99;
+}
+.i{
+  cursor: pointer;
+}
+.reviews{
+  align-self: center;
+  background-color: black;
+  margin-left: -15px !important;
+  padding: 5px;
+  border-radius: 50px;
+  font-size: medium;
+  width: 100px;
+  text-align: center ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .fb {
