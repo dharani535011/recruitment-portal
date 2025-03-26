@@ -109,6 +109,8 @@ const handlechange=async() => {
             <p>Mail : {res.mail}</p>
             <p>Phone : {res.phone}</p>
             <p>Skills : {res.skills.join(", ")}</p>
+            <p>Education : {res.education}</p>
+            <p>Experience : {res.experience}</p>
             <p>status : {res.status}</p>
             <a href={`https://recruitmentportalbackend.onrender.com/uploads${res.resume.split("uploads")[1]}`} target='_blank' className='res'>Resume</a>
             <p>Interview Results:</p>
